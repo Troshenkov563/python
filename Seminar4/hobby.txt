@@ -1,5 +1,5 @@
-Футбол
-Борьба
-Теннис
-Гольф
-Гимнастика
+football
+wrestling
+golf
+tennis
+gymnastics

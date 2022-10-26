@@ -1,5 +1,5 @@
-Иван
-Мага
-Брэд
-Рони
-Даниэл
+ivan
+maga
+brad
+roni
+daniel

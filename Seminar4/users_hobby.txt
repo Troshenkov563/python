@@ -1,0 +1,5 @@
+ivan: football 
+maga: wrestling 
+brad: golf 
+roni: tennis 
+daniel: gymnastics 

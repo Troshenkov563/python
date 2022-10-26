@@ -1,23 +1,26 @@
-# 30. Есть два файла: в одном хранятся ФИО пользователей сайта, а в другом — данные об их хобби. Известно, что при хранении данных используется принцип: одна строка — один пользователь. Написать код, загружающий данные из обоих файлов и формирующий из них словарь: ключи — ФИО, значения — данные о хобби.
+# 30.
+k = open('Seminar4/users.txt', 'r', encoding='utf-8') # opening
+v = open('Seminar4/hobby.txt', 'r', encoding='utf-8') 
 
-# Сохранить словарь в файл users_hobby.txt. 
+users = k.readlines() #reading
+hobby = v.readlines()
 
-# Фрагмент файла с данными о пользователях (users.txt):
-# Иванов Иван Иванович
-# Петров Петр Петрович
-# Фрагмент файла с данными о хобби (hobby.txt):
-# скалолазание, охота
-# горные лыжи
+for i in range(len(users)): #clearing
+    users[i] = users[i].replace('\n','')
 
-keys = open('python/users.txt').read().split('\n')
-values = open('python/hobby.txt').read().split('\n')
-info = dict(zip(keys, values))
-print(info)
+for i in range(len(hobby)):
+    hobby[i] = hobby[i].replace('\n','')
 
-import json
-open('python/users_hobby.txt', 'w').write(json.dumps(info))
+k.close()
+v.close()
 
+my_dict = dict(zip(users, hobby)) #concatination into dictionary
+# print(dictionary)
 
+with open('Seminar4/users_hobby.txt', 'w', encoding="utf-8") as out: # print dict into file (from Seminar 4)
+    keys = my_dict.keys()
+    for key in keys:
+        out.write(f'{key}: {my_dict[key]} \n')
 
 # 31. Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
 
@@ -48,9 +51,29 @@ print(f"Список из неповторяющихся элементов: {ne
 # k=2 => 2x² + 4x + 5 = 0 или x² + 5 = 0 или 10x² = 0
 
 
+from random import randint
+
+k = int(input('Задайте натуральную степень '))
+
+ratiosList = []
+for i in range(k + 1):
+    ratiosList.append(randint(1, 100))
+print(f'Список коэффициентов: {ratiosList}') 
+formula = ''
+for i in range(k-1):
+    formula = formula + str(ratiosList[i]) + 'x' + '^' + str(k - i) + ' + '
+formula = formula + str(ratiosList[k-1]) + 'x' + ' + '
+formula = formula + str(ratiosList[k]) + ' = 0'
+
+print(formula)
+
+
+with open('Seminar4\Polynomial_1.txt', 'w') as p:
+    p.write(formula)
+
+
+
 
 
 # 34. *Даны два файла, в каждом из которых находится запись многочлена. Задача - сформировать файл, содержащий сумму многочленов.
-# 2x² + 4x + 5 = 0 и x² + 5x + 3 = 0 => 3x² + 9x + 8 = 0 
-
-
+# 2x² + 4x + 5 = 0 и x² + 5x + 3 = 0 => 3x² + 9x + 8 = 0
