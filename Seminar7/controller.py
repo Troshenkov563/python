@@ -5,7 +5,7 @@ import mod_sum, mod_div, mod_mult, mod_sub
 def Launch_project():
     if Value_type():
         print('Введите первое число') 
-        num1 = Get_complex_value() #- ДЛЯ КОМПЛЕКСНЫХ ЧИСЕЛ - ОК
+        num1 = Get_complex_value() 
         print('Введите второе число')
         num2 = Get_complex_value()
         operat = Get_mode()
@@ -18,7 +18,7 @@ def Launch_project():
         elif operat == '/':
             result = mod_div.Division(num1, num2)
     else:
-        print('Введите первое число')  #- ДЛЯ РAЦИОНАЛЬНЫХ ЧИСЕЛ - ОК
+        print('Введите первое число')  
         num1 = Get_rational_value()
         print('Введите второе число')
         num2 = Get_rational_value()
